@@ -14,6 +14,7 @@ func callStudent(number : Int) -> String {
             answer = "Paul"
             break
         default:
+            answer = "Vacancy"
             break       
     }
     return answer
