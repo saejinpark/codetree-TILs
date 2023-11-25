@@ -5,19 +5,19 @@ let score = Int(readLine()!)!
 var answer = ""
 
 switch score {
-    case 0...60:
+    case 0...59:
         answer = "F"
         break
-    case 61...70:
+    case 60...69:
         answer = "D"
         break
-    case 71...80:
+    case 70...79:
         answer = "C"
         break
-    case 81...90:
+    case 80...89:
         answer = "B"
         break
-    case 91...100:
+    case 90...100:
         answer = "A"
         break
     default:
