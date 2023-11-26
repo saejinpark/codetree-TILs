@@ -7,11 +7,11 @@ func isLeapYear(year: Int) -> Bool {
         return false
     }
 
-    if year >= 400 && year % 400 == 0 {
+    if year % 400 == 0 {
         return true
     }
 
-    if year >= 100 && year % 100 == 0 {
+    if year % 100 == 0 {
         return false
     }
 
