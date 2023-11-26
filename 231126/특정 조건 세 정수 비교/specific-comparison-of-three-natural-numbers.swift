@@ -6,4 +6,4 @@ let (a, b, c) = {
     return (nums[0], nums[1], nums[2])
 }()
 
-print(a < b && a < c ? 1 : 0, a == b && b == c ? 1 : 0)
+print(a <= b && a <= c ? 1 : 0, a == b && b == c ? 1 : 0)
