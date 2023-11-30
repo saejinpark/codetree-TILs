@@ -10,6 +10,16 @@ public func |> <T, U> (value: T, function: ((T) -> U)) -> U {
     return function(value)
 }
 
-let (a, b) = readLine()!.split(separator: " ").map{Float($0)!} |> {($0[0], $0[1])}
+let (a, b) = readLine()!.split(separator: " ").map{Int($0)!} |> {($0[0], $0[1])}
 
-print(String(format: "%.20f", a / b))
+var text = "\(a / b)."
+
+var remain = a % b
+
+for _ in 1...20 {
+    remain *= 10
+    text += "\(remain / b)"
+    remain %= b
+}
+
+print(text)
