@@ -17,6 +17,9 @@ func solution(_ a: Int, _ b: Int) -> String {
     
     while current < b{
         current = current % 2 == 0 ? current + 3 : current * 2
+        if current > b {
+            break
+        }
         arr.append(current)
     }
 
