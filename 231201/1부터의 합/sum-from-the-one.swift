@@ -6,11 +6,11 @@ func solution(_ n: Int) -> Int {
     var sum = 0
     for i in 1...100 {
         sum += i
-        if sum > n {
+        if sum >= n {
             return i
         }
     }
-    return 0
+    return -1
 }
 
 let answer = solution(n)
