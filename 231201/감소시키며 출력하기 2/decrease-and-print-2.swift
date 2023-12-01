@@ -23,7 +23,7 @@ func solution() -> String {
     let (from, end, by) = (26, 10, -1)
     var i = from
 
-    while i <= end {
+    while i >= end {
         arr.append(i)
         i = i + by
     }
