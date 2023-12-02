@@ -1,9 +1,9 @@
 import Foundation
 
+let dict = ["John", "Tom", "Paul", "Sam"]
+
 func solution() -> String {
     var respons = [String]()
-
-    let dict = ["John", "Tom", "Paul", "Sam"]
 
     while true {
         let n = Int(readLine()!.trimmingCharacters(in: [" "]))! - 1
@@ -16,7 +16,6 @@ func solution() -> String {
                 return respons.joined(separator: "\n")
         }
     }
-    return ""
 }
 
 let answer = solution()
