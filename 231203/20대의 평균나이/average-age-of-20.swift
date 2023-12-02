@@ -9,7 +9,7 @@ func solution() -> String {
         let age = Int(readLine()!.trimmingCharacters(in: [" "]))!
 
         switch age {
-            case 1...29:
+            case 20...29:
                 ages.append(age)
                 break
             default:
