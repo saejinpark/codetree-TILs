@@ -8,7 +8,7 @@ func solution(_ n: Int) -> Int {
     for i in 1...n {
         temp = temp / Float(i)
         answer = i
-        if temp <= 1 {
+        if temp <= 1.0 {
             break
         }
     }
