@@ -2,7 +2,7 @@ import Foundation
 
 var n = Int(readLine()!)!
 
-func solution(n: Int) -> Int {
+func solution(_ n: Int) -> Int {
     var answer = -1
     var temp = Float(n)
     for i in 1...n {
