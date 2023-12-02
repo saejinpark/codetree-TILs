@@ -4,15 +4,17 @@ var n = Int(readLine()!)!
 
 func solution(_ n: Int) -> Int {
     
-    var temp = Float(n)
-    var i = 0
-    
-    while temp > 1 {
-        i += 1
-        temp = temp / Float(i)
+    var cur = Float(n)
+    var temp = 0
+    for i in 1...n {
+        cur = cur / Float(i)
+        temp = i
+        if cur <= 1 {
+            break
+        }
     }
 
-    return i
+    return temp
 }
 
 let answer = solution(n)
