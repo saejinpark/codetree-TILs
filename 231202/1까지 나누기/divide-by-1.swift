@@ -3,17 +3,16 @@ import Foundation
 var n = Int(readLine()!)!
 
 func solution(_ n: Int) -> Int {
-    var answer = -1
+    
     var temp = Float(n)
-    for i in 1...n {
+    var i = 0
+    
+    while temp > 1 {
+        i += 1
         temp = temp / Float(i)
-        answer = i
-        if temp <= 1.0 {
-            break
-        }
     }
 
-    return answer
+    return i
 }
 
 let answer = solution(n)
