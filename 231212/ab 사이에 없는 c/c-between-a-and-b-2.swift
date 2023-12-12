@@ -15,7 +15,7 @@ let (a, b, c) = readLine()!.split(separator: " ").map{Int($0)!} |> {($0[0], $0[1
 func solution(_ a : Int, _ b : Int, _ c : Int) -> Bool {
     var bool = false
     for i in a...b {
-        if c % i == 0 {
+        if i % c == 0 {
             bool = true
             break
         }
@@ -23,6 +23,6 @@ func solution(_ a : Int, _ b : Int, _ c : Int) -> Bool {
     return bool
 }
 
-let answer = solution(a, b, c) ? "YES" : "NO"
+let answer = solution(a, b, c) ? "NO" : "YES"
 
 print(answer)
