@@ -3,7 +3,7 @@ import Foundation
 let n = Int(readLine()!)!
 
 func solution(_ n : Int) -> String {
-    return (1...3).map{
+    return (1...n).map{
         [
             Array(repeating: "*", count: n - $0 + 1).joined(separator: " "),
             Array(repeating: "*", count: $0).joined(separator: " ")
