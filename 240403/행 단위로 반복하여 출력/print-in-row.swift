@@ -11,17 +11,8 @@ func |> <T, U> (value: T, function: (T) -> U) -> U {
 }
 
 let n = Int(readLine()!)!
-
-
-
-func numToLine(_ num: Int) -> String {
-    return Array(1...num).map{String($0)}.joined(separator: "")
-}
-
-func lineToAnswer(_ line: String) -> String {
-    return Array(repeating: line, count: line.count).joined(separator: "\n")
-}
-
+let numToLine = {Array(1...$0).map{String($0)}.joined(separator: "")}
+let lineToAnswer = {Array(repeating: $0, count: $0.count).joined(separator: "\n")}
 let answer = n |> numToLine |> lineToAnswer
 
 print(answer)
