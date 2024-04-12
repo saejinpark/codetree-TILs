@@ -19,7 +19,10 @@ func input() -> Int? {
 }
 
 func genSpace(count: Int) -> String {
-    return String(repeating: " ", count: count)
+    if count == 0 {
+        return ""
+    }
+    return (1...count).map{_ in "  "}.joined(separator: "")
 }
 
 func numToLine(_ n: Int) -> String {
@@ -29,11 +32,9 @@ func numToLine(_ n: Int) -> String {
 func solution(_ n: Int) -> String {
     var answer = ""
 
-    let lineLen = (2 * n) - 1
-
     answer = stride(from: n, to: 0, by: -1).map{
         let line = numToLine($0)
-        let space = genSpace(count: lineLen - line.count)
+        let space = genSpace(count: n - $0)
         return space + line
     }.joined(separator: "\n")
 
