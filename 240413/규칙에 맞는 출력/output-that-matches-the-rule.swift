@@ -22,17 +22,16 @@ func genLine(_ arr: [Int]) -> String {
     return arr.map{String($0)}.joined(separator: " ")
 }
 
-func sollution(_ n: Int) -> String {
-    let arr = Array(1...n)
-    return stride(from: n - 1, to: -1, by: -1).map{
-        genLine(Array(arr[$0..<arr.count]))
-    }.joined(separator: "\n")
+func solution(_ n: Int) -> String {
+    return stride(from: n, to: 0, by: -1)
+        .map { Array($0...n) |> genLine }
+        .joined(separator: "\n")
 }
 
 
 func main() {
     if let n = input() {
-        print(sollution(n))
+        print(solution(n))
     }
 }
 
