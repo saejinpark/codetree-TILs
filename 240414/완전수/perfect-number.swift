@@ -11,7 +11,7 @@ func |> <T, U> (value: T, function: (T) -> U) -> U {
 }
 
 func isPerfectNumber(_ n: Int) -> Bool {
-    return (1..<n).filter{n % $0 == 0}.reduce(0){$0 + $1} == n
+    return (1..<n).filter{n % $0 == 0}.reduce(0, +) == n
 }
 
 func readStartEnd() -> (Int, Int)? {
