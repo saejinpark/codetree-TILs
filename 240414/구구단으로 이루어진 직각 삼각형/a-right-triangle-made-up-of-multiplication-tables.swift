@@ -12,9 +12,7 @@ func |> <T, U> (value: T, function: (T) -> U) -> U {
 
 func input() -> Int? {
     guard let line = readLine(), let result = Int(line)
-    else {
-        return nil
-    }
+    else {return nil}
     return result
 }
 
