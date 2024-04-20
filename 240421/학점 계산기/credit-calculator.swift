@@ -41,7 +41,7 @@ func avgToGrade(_ avg: Float) -> String {
 
 func solution(_ T:Int, _ floats: [Float]) -> String {
     let sum = floats.reduce(0.0, +)
-    let avg = sum / Float(T)
+    let avg = round(sum / Float(T) * 10) / 10 
     var grade = avgToGrade(avg)
     return "\( String(format: "%.1f", avg) )\n\( grade )"
 }
