@@ -35,7 +35,7 @@ func scoresToAvgs(_ scores:[[Int]]) -> [Float] {
 }
 
 func avgsToResults(_ avgs: [Float] ) -> [Bool] {
-    return avgs.map{ $0 > 60.0 }
+    return avgs.map{ $0 >= 60.0 }
 }
 
 func solution(_ T: Int, _ scores: [[Int]]) -> String {
