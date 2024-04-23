@@ -32,7 +32,7 @@ func solution(_ nums: [Int]) -> String {
 
     var avg = round(Float(sum) / Float(cnt) * 10) / 10
 
-    return "\(sum) \(avg)"
+    return "\(sum) \(String(format: "%0.1f", avg))"
 }
 
 func main(){
