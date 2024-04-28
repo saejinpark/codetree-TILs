@@ -29,11 +29,10 @@ func formatAnswer(nums:[Int]) -> String {
 }
 
 func solution(_ n:Int, _ nums:[Int]) -> [Int] {
-    var arr = Array(repeating: 0, count: 9)
-    for num in nums {
+    let result = nums.reduce(into: Array(repeating: 0, count: 9)) { arr, num in
         arr[num - 1] += 1
     }
-    return arr
+    return result
 }
 
 func main() {
