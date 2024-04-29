@@ -27,7 +27,6 @@ func countTensDigitsFormat(counts:[Int]) -> String {
 func getTenNumber(num:Int) -> Int {
     let baseLine = num % 100
     switch baseLine {
-        case 0...9:   return -1
         case 10...19: return 1
         case 20...29: return 2
         case 30...39: return 3
@@ -43,7 +42,9 @@ func getTenNumber(num:Int) -> Int {
 
 func countTensDigits(_ arr:[Int], _ nums:[Int]) -> [Int] {
     var countArr = arr
-    var tenNums = nums.map{ $0 |> getTenNumber }.filter{ $0 != -1 }
+    var tenNums = nums
+                    .map{ $0 |> getTenNumber }
+                    .filter{ $0 != -1 }
     tenNums.forEach{ countArr[$0 - 1] += 1 }
     return countArr
 }
@@ -54,7 +55,8 @@ func solution(_ nums:[Int]) -> String {
         if num == 0 { break }
         useNums.append(num)
     }
-    return countTensDigits(Array(repeating: 0, count: 9), useNums) |> countTensDigitsFormat
+    return countTensDigits(Array(repeating: 0, count: 9), useNums)
+            |> countTensDigitsFormat
 }
 
 func main() {
