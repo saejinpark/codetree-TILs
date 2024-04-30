@@ -18,7 +18,7 @@ func readNums() -> [Int]? {
 }
 
 func solution(_ a:Int, _ b:Int) -> Int {
-    var counter = Array(repeating: 0, count: 9)
+    var counter = Array(repeating: 0, count: 10)
     var current = a
     while current != 0 {
         counter[current % b] += 1
