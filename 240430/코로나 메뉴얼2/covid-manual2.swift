@@ -24,7 +24,7 @@ func solution(_ readResults:[(String,Int)]) -> String {
     var counter = Array(repeating: 0, count: 4)
     var cnt = 0
     for (symptom, temperature) in readResults {
-        if symptom == "Y" && temperature >= 37 {
+        if symptom == "Y" {
             if temperature >= 37 {
                 counter[0] += 1
                 cnt += 1
