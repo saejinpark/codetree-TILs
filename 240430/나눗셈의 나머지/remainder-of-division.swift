@@ -18,13 +18,14 @@ func readNums() -> [Int]? {
 }
 
 func solution(_ a:Int, _ b:Int) -> Int {
-    var counter = Array(repeating: 0, count: 10)
+    var counter:[Int:Int] = [:]
     var current = a
     while current != 0 {
-        counter[current % b] += 1
-        current = current / b
+        let remain = current % b
+        counter[remain, default: 0] += 1
+        current = (current - remain) / b
     }
-    return  counter.map{ $0 * $0 }.reduce(0, +)
+    return  counter.values.map{ $0 * $0 }.reduce(0, +)
 }
 
 func main() {
