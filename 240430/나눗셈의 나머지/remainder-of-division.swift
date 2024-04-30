@@ -20,11 +20,10 @@ func readNums() -> [Int]? {
 func solution(_ a:Int, _ b:Int) -> Int {
     var counter:[Int:Int] = [:]
     var current = a
-    while current <= 0 {
+    while current > 1 {
         let remain = current % b
         counter[remain, default: 0] += 1
-        current -= remain
-        current /= b
+        current = current / b
     }
     return  counter.values.map{ $0 * $0 }.reduce(0, +)
 }
