@@ -25,7 +25,7 @@ func solution(
     ) -> String {
     if n2 > n1 { return "No" }
 
-    for s in 0..<(n1 - n2) {
+    for s in 0...(n1 - n2) {
         var testCase = true
         for i in 0..<n2 {
             if main[s + i] != sub[i] {
