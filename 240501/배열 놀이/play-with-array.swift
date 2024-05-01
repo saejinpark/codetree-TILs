@@ -66,7 +66,7 @@ func solution(_ nums:[Int], _ lines:[String] ) -> String {
     func addResult(vaginal:Vaginal) {
         switch vaginal.type {
             case .first:
-                results.append(String(nums(vaginal.a!)))
+                results.append(String(nums[vaginal.a! - 1]))
             case .second:
                 if let elem = numDict[vaginal.b!] {
                     results.append(String(elem))
