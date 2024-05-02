@@ -28,10 +28,12 @@ func solution(_ n:Int, _ nums:[Int]) -> Int {
         return nums[0]
     }
     var sortedNums = nums.sorted(by:>)
-    while sortedNums[0] == -1 || sortedNums[0] == sortedNums[1] {
-        sortedNums[0] = -1
-        sortedNums[1] = -1
-        sortedNums = sortedNums.sorted(by: >)
+    while sortedNums.count > 1 && sortedNums[0] != -1 && sortedNums[0] == sortedNums[1] {
+        let temp = sortedNums[0]
+        sortedNums = sortedNums.filter{$0 != temp}
+    }
+    if sortedNums.count == 0 {
+        return -1
     }
     return sortedNums[0]
 }
