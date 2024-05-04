@@ -60,7 +60,7 @@ func getTotalAvgs(numsArr:[[Int]]) -> Float {
             sum += numsArr[i][j]
         }
     }
-    return Float(sum * 10) / Float(totalCount) / 10
+    return round(Float(sum) / Float(totalCount) * 10) / 10
 }
 
 func solution(numsArr:[[Int]]) -> String {
