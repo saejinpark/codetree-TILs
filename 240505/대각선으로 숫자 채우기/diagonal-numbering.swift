@@ -35,7 +35,7 @@ func solution(component:(Int, Int)) -> [[Int]] {
                     count: n
                 )
     for diagonalSum in 0..<(n + m) {
-        var (r, c) = diagonalSum < m ? (0, diagonalSum) : (diagonalSum - n + 1, m - 1)
+        var (r, c) = diagonalSum < m ? (0, diagonalSum) : (diagonalSum - m + 1, m - 1)
         while r < n && 0 <= c {
             answer[r][c] = genNum()
             r += 1
