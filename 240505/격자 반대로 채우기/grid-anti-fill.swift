@@ -32,14 +32,16 @@ func solution(n:Int) -> [[Int]] {
                 count: n
                 )
     let genNum = genNumFunc()
+    var cnt = -1
     for c in stride(from: n - 1, to: -1, by: -1) {
-        if c % 2 == 0 {
-            for r in 0..<n {
+        cnt += 1
+        if cnt % 2 == 0 {
+            for r in stride(from: n - 1, to: -1, by: -1) {
                 answer[r][c] = genNum()
             }
             continue
         }
-        for r in stride(from: n - 1, to: -1, by: -1) {
+        for r in 0..<n {
             answer[r][c] = genNum()
         }
     }
