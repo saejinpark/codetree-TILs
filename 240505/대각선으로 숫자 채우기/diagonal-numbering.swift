@@ -34,17 +34,15 @@ func solution(component:(Int, Int)) -> [[Int]] {
                     repeating: Array(repeating: 0, count: m),
                     count: n
                 )
-    for i in 0..<(n + m) {
-        var (r, c) = (-1, i + 1)
-        while r < n {
+    for diagonalSum in 0..<(n + m) {
+        var (r, c) = diagonalSum < n ? (0, diagonalSum) : (diagonalSum - n + 1, m - 1)
+        while r < n && 0 <= c {
+            answer[r][c] = genNum()
             r += 1
             c -= 1
-            if r >= n || c >= m || c < 0 {
-                continue
-            }
-            answer[r][c] = genNum()
         }
     }
+    
     return answer
 }
 
