@@ -21,7 +21,7 @@ func solution(component:(Int, [String], String)) -> String {
     let filteredStrs = strs.filter{$0.hasPrefix(base)}
     let sumLen = filteredStrs.reduce(0){$0 + $1.count}
     let avg = Float(sumLen * 100) / Float(filteredStrs.count) / 100
-    return "\(filteredStrs.count) \(avg)"
+    return "\(filteredStrs.count) \(String(format: "%.2f", avg))"
 }
 
 func main() {
