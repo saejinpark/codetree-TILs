@@ -15,7 +15,7 @@ func solution(component:(String, String)) -> Int? {
     if let index = Array(str).map{String($0)}.index(of: base) {
         return index
     }
-    return -1
+    return nil
 }
 
 func main() {
