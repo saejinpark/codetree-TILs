@@ -12,11 +12,22 @@ func |> <T, U> (value:T, function:(T) -> U) -> U {
 
 func counter(component:(String, String)) -> Int {
     let (line, base) = component
-    let answer = line.split(separator: base).count - 1
-    if answer == 0 {
-        return line.contains(base) ? 1 : 0
+    var cnt = 0
+    let lineArr = Array(line)
+    let baseArr = Array(base)
+    for i in 0...(lineArr.count - baseArr.count) {
+        var testCase = true
+        for j in 0..<baseArr.count {
+            if lineArr[i + j] != baseArr[j] {
+                testCase = false
+                break
+            }
+        }
+        if testCase {
+            cnt += 1
+        }
     }
-    return answer
+    return cnt
 }
 
 func solution(line:String) -> String {
