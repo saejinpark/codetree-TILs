@@ -17,7 +17,7 @@ func solution(component:(String, String)) -> Int {
     for i in 0...(strArr.count - baseArr.count) {
         var testCase = true
         for j in 0..<baseArr.count {
-            if strArr[i + j] != baseArr[i] {
+            if strArr[i + j] != baseArr[j] {
                 testCase = false
                 break
             }
