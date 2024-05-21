@@ -13,7 +13,7 @@ func |> <T, U> (value:T, function:(T) -> U) -> U {
 func solution(component:(String, String)) -> String {
     let (str, base) = component
     var strArr = str.split(separator: base).map{String($0)}
-    while strArr.count != 1 {
+    while strArr.count > 1 {
         strArr = strArr.joined(separator: "").split(separator: base).map{String($0)}
     }
     return strArr[0]
