@@ -16,7 +16,7 @@ func solution(component:(String, String)) -> String {
     while strArr.count > 1 {
         strArr = strArr.joined(separator: "").split(separator: base).map{String($0)}
     }
-    return strArr[0]
+    return strArr.count > 0 ? strArr[0] : ""
 }
 
 func main() {
