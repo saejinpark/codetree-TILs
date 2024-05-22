@@ -12,7 +12,7 @@ func |> <T, U> (value:T, function:(T) -> U) -> U {
 
 func readTwoStr() -> (String, String)? {
     guard let line = readLine() else {return nil}
-    let strs = line.split(separator: "")
+    let strs = line.split(separator: " ")
     if strs.count != 2 {
         return nil
     }
@@ -29,7 +29,7 @@ func singleStrToAscii(_ str:String) -> Int? {
 func solution(twoStr:(String, String)) -> String {
     let (str1, str2) = twoStr
     if let ascii1 = singleStrToAscii(str1), let ascii2 = singleStrToAscii(str2) {
-        return "\(ascii1) \(ascii2)"
+        return "\(ascii1 + ascii2) \(ascii1 > ascii2 ? ascii1 - ascii2 : ascii2 - ascii1)"
     }
     return "Error"
 }
