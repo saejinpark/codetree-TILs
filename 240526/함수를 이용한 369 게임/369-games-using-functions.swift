@@ -18,25 +18,23 @@ func readNums() -> [Int]? {
     return nums
 }
 
-
-func valiedTest(num: Int) -> Bool {
-    if num % 3 == 0 {
-        return true
-    }
-    let numStr = String(num)
-    for i in ["3", "6", "9"] {
-        if numStr.contains(i) {
-            return true
-            break
-        }
-    } 
-    return false
-}
-
 func solution(input: (Int, Int)) -> Int {
     let (a, b) = input
-    return (a...b)
-        .filter(valiedTest).count
+    var cnt = 0
+    for i in a...b {
+        if i % 3 == 0 {
+            cnt += 1
+            continue
+        }
+        let str = String(i)
+        for j in ["3", "6", "9"] {
+            if str.contains(j) {
+                cnt += 1
+                break
+            }
+        }
+    }
+    return cnt
 }
 
 func main() {
