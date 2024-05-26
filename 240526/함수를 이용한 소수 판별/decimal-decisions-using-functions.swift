@@ -20,11 +20,13 @@ func readNums() -> [Int]? {
 
 var frimeNumDict: [Int: Bool] = [:]
 
-for i in 2...100 {
+for i in 1...100 {
     frimeNumDict[i] = true
 }
 
-for i in 2...100 {
+frimeNumDict[1] = false
+
+for i in 1...100 {
     let bool = frimeNumDict[i]!
     if !bool { continue }
     for j in stride(from: 2, to: (100 / i) + 1, by: 1) {
@@ -34,7 +36,7 @@ for i in 2...100 {
 
 func solution(input: (Int, Int)) -> Int {
     let (a, b) = input
-    return stride(from: a, to: b + 1, by: 1).filter{frimeNumDict[$0]!}.reduce(0, +)
+    return (a...b).filter{frimeNumDict[$0]!}.reduce(0, +)
 }
 
 func main() {
