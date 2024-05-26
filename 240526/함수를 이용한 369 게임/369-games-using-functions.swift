@@ -26,9 +26,11 @@ func solution(input: (Int, Int)) -> Int {
             cnt += 1
             continue
         }
-        let str = String(i)
-        for j in ["3", "6", "9"] {
-            if str.contains(j) {
+        var current = i
+        while current != 0 {
+            let testCase = current % 10
+            current /= 10
+            if testCase != 0 && testCase % 3 == 0 {
                 cnt += 1
                 break
             }
