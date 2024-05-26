@@ -16,9 +16,9 @@ func readNum() -> Int? {
 }
 
 func solution(n: Int) -> String {
-    if n % 2 != 0 { return "1 No" }
+    if n % 2 != 0 { return "No" }
     let posNumSum = String(n).split(separator: "").compactMap({Int($0)}).reduce(0, +)
-    if posNumSum % 5 != 0 { return " 2 No" }
+    if posNumSum % 5 != 0 { return " No" }
     return "Yes"
 }
 
