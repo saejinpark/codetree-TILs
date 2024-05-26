@@ -34,7 +34,7 @@ for i in 2...100 {
 
 func solution(input: (Int, Int)) -> Int {
     let (a, b) = input
-    return stride(from: a, to: b, by: 1).filter{frimeNumDict[$0]!}.reduce(0, +)
+    return stride(from: a, to: b + 1, by: 1).filter{frimeNumDict[$0]!}.reduce(0, +)
 }
 
 func main() {
