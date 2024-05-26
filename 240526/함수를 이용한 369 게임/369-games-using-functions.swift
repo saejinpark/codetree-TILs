@@ -18,15 +18,14 @@ func readNums() -> [Int]? {
     return nums
 }
 
-let ThreeSixNine = ["3", "6", "9"]
 
 func valiedTest(num: Int) -> Bool {
     if num % 3 == 0 {
         return true
     }
-    let numStrArr = String(num).split(separator: "").map(String.init)
-    for i in numStrArr {
-        if ThreeSixNine.contains(i) {
+    let numStr = String(num)
+    for i in ["3", "6", "9"] {
+        if numStr.contains(i) {
             return true
         }
     } 
