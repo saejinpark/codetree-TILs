@@ -27,6 +27,7 @@ func valiedTest(num: Int) -> Bool {
     for i in ["3", "6", "9"] {
         if numStr.contains(i) {
             return true
+            break
         }
     } 
     return false
