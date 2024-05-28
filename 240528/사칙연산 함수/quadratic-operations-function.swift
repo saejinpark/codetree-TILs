@@ -48,7 +48,7 @@ func solution(input: (Int, String, Int)) -> String {
         case "/":
             return divide(num1, num2)
         default:
-            return ""
+            return "False"
     }
 }
 
