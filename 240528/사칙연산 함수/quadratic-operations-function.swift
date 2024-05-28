@@ -16,7 +16,6 @@ func readInput() -> (Int, String, Int)? {
     if temp.count != 3 { return nil }
     guard let num1 = Int(temp[0]), let num2 = Int(temp[2]) else { return nil }
     let op = String(temp[1])
-    if !["+", "-", "/", "*"].contains(op) { return nil }
     return (num1, op, num2)
 }
 
