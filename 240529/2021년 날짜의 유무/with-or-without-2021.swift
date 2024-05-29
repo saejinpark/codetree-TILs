@@ -23,7 +23,7 @@ let DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 func solution(input: (Int, Int)) -> String {
     let (m, d) = input
     if m < 1 || m >= DAYS.count { return "No" }
-    if d < 1 || d >= DAYS[m - 1] { return "No" }
+    if d < 1 || d > DAYS[m - 1] { return "No" }
     return "Yes"
 }
 
