@@ -11,7 +11,7 @@ func |> <T, U> (value: T, function: (T) -> U) -> U {
 }
 
 func solution(str: String) -> String {
-    return Set(Array(str)).count > 2 ? "Yes" : "No"
+    return Set(Array(str)).count >= 2 ? "Yes" : "No"
 }
 
 func main() {
