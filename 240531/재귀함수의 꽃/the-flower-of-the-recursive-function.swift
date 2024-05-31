@@ -16,16 +16,16 @@ func readNum() -> Int? {
 }
 
 func solution(stack: String = "", count: Int) -> String {
+    let midIndex = stack.index(stack.startIndex, offsetBy: stack.count / 2)
+    let front = String(stack[..<midIndex])
+    let back = String(stack[midIndex...])
     if count == 0 {
-        return stack.split(separator: "").joined(separator: " ")
+        return "\(front) \(back)"
     }
     if stack == "" {
         return solution(stack: "\(count)\(count)", count: count - 1)
     }
-    let midIndex = stack.index(stack.startIndex, offsetBy: stack.count / 2)
-    let front = String(stack[..<midIndex]) + "\(count)"
-    let back = "\(count)" + String(stack[midIndex...])
-    return solution(stack: front + back, count: count - 1)
+    return solution(stack: front + " \(count)\(count) " + back, count: count - 1)
 }
 
 func main() {
