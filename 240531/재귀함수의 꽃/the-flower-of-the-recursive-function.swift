@@ -23,7 +23,6 @@ func solution(stack: String = "", count: Int) -> String {
         return solution(stack: "\(count)\(count)", count: count - 1)
     }
     let midIndex = stack.index(stack.startIndex, offsetBy: stack.count / 2)
-
     let front = String(stack[..<midIndex]) + "\(count)"
     let back = "\(count)" + String(stack[midIndex...])
     return solution(stack: front + back, count: count - 1)
@@ -31,7 +30,7 @@ func solution(stack: String = "", count: Int) -> String {
 
 func main() {
     guard let num = readNum() else { return }
-    print(solution(count: 5))
+    print(solution(count: num))
 
 }
 
