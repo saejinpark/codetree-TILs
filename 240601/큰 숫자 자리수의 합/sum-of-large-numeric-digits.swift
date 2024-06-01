@@ -33,9 +33,8 @@ func sum(nums: [Int], stack: Int = 0) -> Int {
 }
 
 func solution(nums: [Int]) -> Int {
-    let multiNum = multi(nums: nums)
     return sum(
-                nums: String(multiNum)
+                nums: String(multi(nums: nums))
                     .split(separator: "")
                     .compactMap({Int($0)})
             )
