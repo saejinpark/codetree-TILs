@@ -24,20 +24,17 @@ func readNums() -> [Int]? {
 }
 
 func solution(nums: [Int]) -> Int {
-    var max1 = Int.min
-    var max2 = Int.min
+    let sortedNums = nums.sorted()
+    var groupMax = 0
 
-    for i in stride(from: 0, to: nums.count, by: 2) {
-        let testCase = nums[i] + nums[i + 1]
-        max1 = max1 > testCase ? max1 : testCase
+    for i in stride(from: 0, to: nums.count, by: 1) {
+        let groupSum = sortedNums[i] + sortedNums[nums.count - 1 - i]
+        if groupSum > groupMax {
+            groupMax = groupSum
+        }
     }
 
-    for i in stride(from: 1, to: nums.count - 1, by: 2) {
-        let testCase = nums[i] + nums[i + 1]
-        max2 = max2 > testCase ? max2 : testCase
-    }
-
-    return max1 < max2 ? max1 : max2
+    return groupMax
 }
 
 func main() {
