@@ -32,6 +32,7 @@ let _solution = {
     var arr:[Int] = []
     return {(num: Int) -> Int in
         arr.append(num)
+        arr.sort()
         return arr.count % 2 == 1 ? findMidIndex(arr: arr) : -1
     }
 }()
