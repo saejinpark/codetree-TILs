@@ -32,8 +32,8 @@ func solution(nums: [Int]) -> Int {
         max1 = max1 > testCase ? max1 : testCase
     }
 
-    for i in stride(from: 1, to: nums.count + 1, by: 2) {
-        let testCase = nums[i] + nums[(i + 1) % nums.count]
+    for i in stride(from: 1, to: nums.count - 1, by: 2) {
+        let testCase = nums[i] + nums[i + 1]
         max2 = max2 > testCase ? max2 : testCase
     }
 
