@@ -20,7 +20,7 @@ func readNKT() -> (Int, Int, String)? {
 
 func solution(component: (Int, Int, String, [String])) -> String {
     let (n, k, t, strs) = component
-    return strs.filter{$0[..<$0.index($0.startIndex, offsetBy: t.count)] == t}.sorted()[k - 1]
+    return strs.filter{$0.count >= t.count && $0[..<$0.index($0.startIndex, offsetBy: t.count)] == t}.sorted()[k - 1]
 }
 
 func main() {
