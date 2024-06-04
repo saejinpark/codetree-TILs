@@ -24,7 +24,7 @@ class BombDefusal: CustomStringConvertible {
     var description: String {
         return "code : \(code)\n"
             + "color : \(alpha)\n"
-            + "second : \(34)"
+            + "second : \(time)"
     }
 }
 
