@@ -34,7 +34,10 @@ class Score: Hashable, Equatable, Comparable, CustomStringConvertible {
     static func < (lhs: Score, rhs: Score) -> Bool {
         return lhs.korean != rhs.korean
             ? lhs.korean < rhs.korean
-            : lhs.english < rhs.english
+            : lhs.english != rhs.english
+            ? lhs.english < rhs.english
+            : lhs.math < rhs.math
+
     }
 
     static func == (lhs: Score, rhs: Score) -> Bool {
