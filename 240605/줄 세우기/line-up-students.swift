@@ -34,7 +34,7 @@ class Student: Identifiable, Hashable, Equatable, Comparable, CustomStringConver
             ? lhs.tall < rhs.tall
             : lhs.weight != rhs.weight
             ? lhs.weight < rhs.weight
-            : lhs.id < rhs.id 
+            : lhs.id > rhs.id 
     }
 
     var description: String {
