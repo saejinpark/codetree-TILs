@@ -63,9 +63,7 @@ class Student: Hashable, Equatable, Comparable, CustomStringConvertible {
     }
 
     static func == (lhs: Student, rhs: Student) -> Bool {
-        return lhs.score != rhs.score
-                ? lhs.score < rhs.score
-                : lhs.name < rhs.name
+        return lhs.score < rhs.score
     }
 
     static func < (lhs: Student, rhs: Student) -> Bool {
