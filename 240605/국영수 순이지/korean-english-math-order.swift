@@ -14,7 +14,7 @@ func readNum() -> Int? {
     guard let line = readLine(), let num = Int(line) else { return nil }
     return num
 }
-class Score: Hashable, Equatable, CustomStringConvertible {
+class Score: Hashable, Equatable, Comparable, CustomStringConvertible {
     let korean: Int
     let english: Int
     let math: Int
@@ -29,6 +29,14 @@ class Score: Hashable, Equatable, CustomStringConvertible {
         hasher.combine(korean)
         hasher.combine(english)
         hasher.combine(math)
+    }
+
+    static func < (lhs: Score, rhs: Score) -> Bool {
+        return lhs.korean != rhs.korean
+            ? lhs.korean < rhs.korean
+            : lhs.english != rhs.english
+            ? lhs.english < rhs.english
+            : lhs.math < rhs.math
     }
 
     static func == (lhs: Score, rhs: Score) -> Bool {
@@ -57,11 +65,13 @@ class Student: Hashable, Equatable, Comparable, CustomStringConvertible {
     }
 
     static func == (lhs: Student, rhs: Student) -> Bool {
-        return lhs.name == rhs.name && lhs.score == rhs.score
+        return lhs.score != rhs.score
+                ? lhs.score < rhs.score
+                : lhs.name < rhs.name
     }
 
     static func < (lhs: Student, rhs: Student) -> Bool {
-        return rhs.score.description < lhs.score.description
+        return lhs.score.description < rhs.score.description
     }
 
     var description: String {
@@ -83,7 +93,11 @@ func readStudent() -> Student? {
 }
 
 func solution(students: [Student]) -> String {
-    return students.sorted().map{$0.description}.joined(separator: "\n")
+    return students
+            .sorted()
+            .reversed()
+            .map{$0.description}
+            .joined(separator: "\n")
 }
 
 func main() {
