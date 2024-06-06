@@ -44,7 +44,7 @@ class Student: Hashable, Equatable, Comparable, CustomStringConvertible {
     static func < (lhs: Student, rhs: Student) -> Bool {
         return lhs.tall != rhs.tall
                 ? lhs.tall < rhs.tall
-                : lhs.weight < rhs.weight
+                : lhs.weight > rhs.weight
     }
 
     var description: String {
