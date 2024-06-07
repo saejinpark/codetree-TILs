@@ -26,7 +26,7 @@ func getMinute(input: (Int, Int, Int)) -> Int {
 func solution(input: (Int, Int, Int)) -> Int {
     let start = (11, 11, 11) |> getMinute
     let end = input |> getMinute
-    return start < end ? end - start : -1
+    return start <= end ? end - start : -1
 }
 
 func main() {
