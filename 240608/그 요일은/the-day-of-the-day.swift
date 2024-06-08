@@ -60,7 +60,7 @@ func solution(input: (Int, Int, Int, Int), day: String) -> Int {
     let constant = getConstant(count: start, day: day)
     let end = getDays(month: m2, day: d2)
     var count = 0
-    for i in start...end {
+    for i in start..<end {
         let currentDay = DAY_OF_WEEKS[(i + constant) % 7]
         if currentDay == day {
             count += 1
