@@ -27,26 +27,20 @@ func readArrow() -> (Int, String)? {
 func solution(input: (Int, [(Int, String)])) -> Int {
     let (n, arrows) = input
     var coordDict: [String: Int] = [:]
-    var start = 0
-    var end = 0
-    var current = 0
+    var (start, end, current) = (0, 0, 0)
     for (num, command) in arrows {
         switch command {
         case "L":
             for i in 1...num {
                 coordDict["\(current - 1) \(current)", default: 0] += 1
                 current -= 1
-                if current < start {
-                   start = current 
-                }
+                start = current < start ? current : start
             }
         case "R":
             for i in 1...num {
                 coordDict["\(current) \(current + 1)", default: 0] += 1
                 current += 1
-                if end < current {
-                   end = current 
-                }
+                end = end < current ? current : end
             }
         default:
             return -1
@@ -57,9 +51,7 @@ func solution(input: (Int, [(Int, String)])) -> Int {
 
     for i in start..<end {
         let stack = (coordDict["\(i) \(i + 1)"] ?? 0)
-        if stack >= 2 {
-            answer += 1
-        }
+        answer = stack >= 2 ? answer + 1 : answer
     }
 
     return answer
