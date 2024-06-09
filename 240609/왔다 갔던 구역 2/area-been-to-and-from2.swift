@@ -30,15 +30,14 @@ func solution(input: (Int, [(Int, String)])) -> Int {
     var arr = Array(repeating: 0, count: 600)
     var current = constant
     for (num, dict) in arrows {
-        arr[current] += 1
         switch dict {
         case "L":
-            for i in 1...num {
+            for i in 0...num {
                 current = current - 1
                 arr[current] += 1
             }
         case "R":
-            for i in 1...num {
+            for i in 0...num {
                 current = current + 1
                 arr[current] += 1
             }
