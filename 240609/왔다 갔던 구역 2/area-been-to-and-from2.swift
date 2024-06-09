@@ -34,20 +34,20 @@ func solution(input: (Int, [(Int, String)])) -> Int {
         switch dict {
         case "L":
             for i in 1...num {
-                arr[current] += 1
                 current = current - 1
+                arr[current] += 1
             }
         case "R":
             for i in 1...num {
-                arr[current] += 1
                 current = current + 1
+                arr[current] += 1
             }
         default:
             return -1
         }
     }
 
-    return arr.filter{$0 >= 2}.count
+    return arr.filter{$0 >= 2}.count - 1
 }
 
 func main() {
