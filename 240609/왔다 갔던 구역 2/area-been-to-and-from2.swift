@@ -33,14 +33,14 @@ func solution(input: (Int, [(Int, String)])) -> Int {
         arr[current] += 1
         switch dict {
         case "L":
-            for i in 1..<num {
-                current = current - 1
+            for i in 1...num {
                 arr[current] += 1
+                current = current - 1
             }
         case "R":
-            for i in 1..<num {
-                current = current + 1
+            for i in 1...num {
                 arr[current] += 1
+                current = current + 1
             }
         default:
             return -1
