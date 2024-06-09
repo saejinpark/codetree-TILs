@@ -28,7 +28,7 @@ func solution(input: (Int, Int, [(Int, Int)])) -> Int {
     let (n, k, ranges) = input
     var arr = Array(repeating: 0, count: n)
     for (start, end) in ranges {
-        for i in start...end {
+        for i in (start - 1)..<end {
             arr[i] += 1
         }
     }
