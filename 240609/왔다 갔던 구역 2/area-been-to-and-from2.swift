@@ -47,7 +47,19 @@ func solution(input: (Int, [(Int, String)])) -> Int {
         }
     }
 
-    return arr.filter{$0 >= 2}.count - 1
+    var count = 0
+    for i in 0..<(arr.count - 1) {
+        if arr[i] >= 2 && arr[i + 1] >= 2 {
+            count += 1
+        }
+    }
+    for i in 1..<arr.count {
+        if arr[i - 1] >= 2 && arr[i + 1] >= 2 {
+            count += 1
+        }
+    }
+
+    return count
 }
 
 func main() {
