@@ -26,35 +26,43 @@ func readArrow() -> (Int, String)? {
 
 func solution(input: (Int, [(Int, String)])) -> Int {
     let (n, arrows) = input
-    let constant = 300
-    var arr = Array(repeating: 0, count: 600)
-    var current = constant
-    for (num, dict) in arrows {
-        arr[current] += 1
-        switch dict {
+    var coordDict: [String: Int] = [:]
+    var start = 0
+    var end = 0
+    var current = 0
+    for (num, command) in arrows {
+        switch command {
         case "L":
             for i in 1...num {
-                current = current - 1
-                arr[current] += 1
+                coordDict["\(current - 1) \(current)", default: 0] += 1
+                current -= 1
+                if current < start {
+                   start = current 
+                }
             }
         case "R":
             for i in 1...num {
-                current = current + 1
-                arr[current] += 1
+                coordDict["\(current) \(current + 1)", default: 0] += 1
+                current += 1
+                if end < current {
+                   end = current 
+                }
             }
         default:
             return -1
         }
     }
 
-    var count = 0
-    for i in 0..<(arr.count - 1) {
-        if arr[i] >= 2 && arr[i + 1] >= 2 {
-            count += 1
+    var answer = 0
+
+    for i in start..<end {
+        let stack = (coordDict["\(i) \(i + 1)"] ?? 0)
+        if stack >= 2 {
+            answer += 1
         }
     }
 
-    return count - 1
+    return answer
 }
 
 func main() {
