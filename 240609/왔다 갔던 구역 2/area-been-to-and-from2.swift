@@ -32,12 +32,12 @@ func solution(input: (Int, [(Int, String)])) -> Int {
     for (num, dict) in arrows {
         switch dict {
         case "L":
-            for i in 0...num {
+            for i in 1...num {
                 current = current - 1
                 arr[current] += 1
             }
         case "R":
-            for i in 0...num {
+            for i in 1...num {
                 current = current + 1
                 arr[current] += 1
             }
