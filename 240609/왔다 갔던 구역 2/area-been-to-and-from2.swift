@@ -53,11 +53,6 @@ func solution(input: (Int, [(Int, String)])) -> Int {
             count += 1
         }
     }
-    for i in 1..<arr.count {
-        if arr[i - 1] >= 2 && arr[i + 1] >= 2 {
-            count += 1
-        }
-    }
 
     return count
 }
