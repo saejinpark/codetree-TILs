@@ -26,8 +26,8 @@ func readArrow() -> (Int, String)? {
 
 func solution(input: (Int, [(Int, String)])) -> Int {
     let (n, arrows) = input
-    let constant = 100
-    var arr = Array(repeating: 0, count: 1200)
+    let constant = 300
+    var arr = Array(repeating: 0, count: 600)
     var current = constant
     for (num, dict) in arrows {
         switch dict {
