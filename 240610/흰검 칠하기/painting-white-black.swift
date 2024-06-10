@@ -24,26 +24,27 @@ func readCommand() -> (Int, String)? {
 
 func solution(input: (Int, [(Int, String)])) -> String {
     let (n, commands) = input
-    var dict: [String: [Int]] = [:]
-
-    var current = 0
-    var start = 0
-    var end = 0
     
-    for command in commands {
-        let (num, d) = command
+    var offset = 0
+    for (num, _) in commands {
+        offset += num
+    }
+    var arr: [[Int]] = Array(repeating: [], count: offset * 2 + 1)
+    var current = offset
+
+    for (num, d) in commands {
         switch d {
         case "L":
-            for _ in (1...num) {
-                dict["\(current - 1) \(current)", default: []].append(0)
+            arr[current].append(0)
+            for _ in 1..<num {
                 current -= 1
-                start = current < start ? current : start 
+                arr[current].append(0)
             }
         case "R":
-            for _ in (1...num) {
-                dict["\(current) \(current + 1)", default: []].append(1)
+            arr[current].append(1)
+            for _ in 1..<num {
                 current += 1
-                end = current > end ? current : end
+                arr[current].append(1)
             }
         default:
             return "-1"
@@ -52,21 +53,24 @@ func solution(input: (Int, [(Int, String)])) -> String {
 
     var answer = [0, 0, 0]
 
-    for (key, value) in dict {
+    for colors in arr {
+        if colors.count == 0 {
+            continue
+        }
         var whiteCount = 0
-        var blackCount = 0
-        for i in value {
-            if i == 0 {
+        var blackCount = 0 
+        
+        for color in colors {
+            if color == 0 {
                 whiteCount += 1
-            } else {
+            }else {
                 blackCount += 1
             }
-
         }
         if whiteCount >= 2 && blackCount >= 2 {
             answer[2] += 1
         } else {
-            answer[value[value.count - 1]] += 1
+            answer[colors[colors.count - 1]] += 1
         }
     }
 
