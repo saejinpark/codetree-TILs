@@ -51,12 +51,15 @@ func solution(coordPairs: [CoordPair]) -> Int {
         }
 
     }
+
     var lb = (2001, 2001)
     var rt = (0, 0)
+    var hasArea = false
 
     for y in 0..<grid.count {
         for x in 0..<grid[y].count {
             if grid[y][x] == 1 {
+                hasArea = true
                 lb.0 = [lb.0, y].min()!
                 lb.1 = [lb.1, x].min()!
                 rt.0 = [rt.0, y].max()!
@@ -64,6 +67,11 @@ func solution(coordPairs: [CoordPair]) -> Int {
             }
         }
     }
+
+    if !hasArea {
+        return 0
+    }
+
     grid = Array(repeating: Array(repeating: 0, count: offset * 2 + 1), count: offset * 2 + 1)
 
     let (sx, sy) = lb
