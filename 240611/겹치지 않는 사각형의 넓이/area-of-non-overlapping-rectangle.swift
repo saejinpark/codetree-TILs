@@ -49,7 +49,7 @@ func solution(coordPairs: [CoordPair]) -> Int {
         let (ex, ey) = end
         for y in sy..<ey {
             for x in sx..<ex {
-                grid[y][x] = 1
+                grid[y + offset][x + offset] = 1
             }
         }
     }
@@ -57,7 +57,7 @@ func solution(coordPairs: [CoordPair]) -> Int {
     let (ex, ey) = m.1
     for y in sy..<ey {
         for x in sx..<ex {
-            grid[y][x] = 0
+            grid[y + offset][x + offset] = 0
         }
     }
 
