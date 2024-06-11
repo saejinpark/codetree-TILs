@@ -52,7 +52,7 @@ func solution(coordPairs: [CoordPair]) -> Int {
 
     }
     var lb = (2001, 2001)
-    var rt = (-2001, -2001)
+    var rt = (0, 0)
 
     for y in 0..<grid.count {
         for x in 0..<grid[y].count {
