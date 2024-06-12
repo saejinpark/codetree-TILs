@@ -16,16 +16,13 @@ func readNum() -> Int? {
 }
 
 func solution(nums: [Int]) -> Int {
-    var maxLength = 0
+    var maxLength = 1
     var length = 0
     var temp = -1
     for num in nums {
         if temp == -1 || num <= temp {
             temp = num
             length = 1
-            if maxLength == 0 {
-                maxLength == 1
-            }
             continue
         }
         temp = num
