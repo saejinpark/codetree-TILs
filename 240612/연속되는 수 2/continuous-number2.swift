@@ -16,7 +16,7 @@ func readNum() -> Int? {
 }
 
 func solution(nums: [Int]) -> Int {
-    var maxCount = 0
+    var maxCount = 1
     var baseLine = -1
     var count = 0
     for testCase in nums {
