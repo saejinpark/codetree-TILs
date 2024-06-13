@@ -25,8 +25,9 @@ func readNumPair() -> (Int, Int)? {
 
 func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
     let (N, M, aPairs, bPairs) = input
-    var aPosLog: [Int] = [0]
-    var bPosLog: [Int] = [0]
+    var aPosLog = [0]
+    var bPosLog = [0]
+
     for (v, t) in aPairs {
         for _ in 1...t {
             aPosLog.append(aPosLog[aPosLog.count - 1] + v)
@@ -41,23 +42,24 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
     var current = 0
     var headList: [Int] = []
     
-    for i in 1..<(N + M) {
+    for i in 1..<[aPosLog.count, bPosLog.count].min()! {
         if aPosLog[i] > bPosLog[i] {
-            headList.append(1)
+            current = 1
+        } else if aPosLog[i] < bPosLog[i] {
+            current = 2
         }
-        if aPosLog[i] < bPosLog[i] {
-            headList.append(2)
-        }
+        headList.append(current) 
     }
 
-    for head in headList {
+    for i in 0..<(headList.count - 1) {
+        let head = headList[i]
         if current != head {
             current = head
             count += 1
         }
     }
 
-    return count
+    return count - 1
 }
 
 func main() {
