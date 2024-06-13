@@ -38,11 +38,13 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
             bPosLog.append(bPosLog[bPosLog.count - 1] + v)
         }
     }
+    aPosLog.remove(at: 0)
+    bPosLog.remove(at: 0)
 
-    var current = 0
+    var current = aPosLog[0] > bPosLog[0] ? 1 : 2
     var count = 0
     
-    for i in 0..<[aPosLog.count, bPosLog.count].min()! {
+    for i in 1..<[aPosLog.count, bPosLog.count].min()! {
         if aPosLog[i] == bPosLog[i] {
             continue
         }
