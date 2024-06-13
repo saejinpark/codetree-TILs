@@ -42,7 +42,7 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
     var current = 0
     var headList: [Int] = []
     
-    for i in 1..<[aPosLog.count, bPosLog.count].min()! {
+    for i in 0..<[aPosLog.count, bPosLog.count].min()! {
         if aPosLog[i] > bPosLog[i] {
             current = 1
         } else if aPosLog[i] < bPosLog[i] {
