@@ -51,7 +51,7 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
         headList.append(current) 
     }
 
-    for i in 1..<(headList.count - 1) {
+    for i in 1...(headList.count - 1) {
         let head = headList[i]
         if current != head {
             let temp = current
@@ -62,7 +62,7 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
         }
     }
 
-    return count - 1
+    return count
 }
 
 func main() {
