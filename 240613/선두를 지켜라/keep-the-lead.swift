@@ -67,7 +67,7 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
 func main() {
     guard let (n, m) = readNumPair() else { return }
     let aPairs = (1...n).compactMap({_ in readNumPair()})
-    let bPairs = (1...n).compactMap({_ in readNumPair()})
+    let bPairs = (1...m).compactMap({_ in readNumPair()})
     print((n, m, aPairs, bPairs) |> solution)
 }
 
