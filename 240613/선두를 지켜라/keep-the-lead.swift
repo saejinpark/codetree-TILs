@@ -44,8 +44,8 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
     var current = aPosLog[0] > bPosLog[0] ? 1 : 2
     var count = 0
 
-    print(aPosLog)
-    print(bPosLog)
+    // print(aPosLog)
+    // print(bPosLog)
     
     for i in 1..<[aPosLog.count, bPosLog.count].min()! {
         if aPosLog[i] == bPosLog[i] {
