@@ -54,12 +54,15 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
     for i in 0..<(headList.count - 1) {
         let head = headList[i]
         if current != head {
+            let temp = current
             current = head
-            count += 1
+            if temp != 0 {
+                count += 1
+            }
         }
     }
 
-    return count - 1
+    return count
 }
 
 func main() {
