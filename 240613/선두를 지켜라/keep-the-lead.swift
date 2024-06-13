@@ -38,27 +38,21 @@ func solution(input: (Int, Int, [(Int, Int)], [(Int, Int)])) -> Int {
             bPosLog.append(bPosLog[bPosLog.count - 1] + v)
         }
     }
-    var count = 0
+
     var current = 0
-    var headList: [Int] = []
+    var count = 0
     
     for i in 0..<[aPosLog.count, bPosLog.count].min()! {
-        if aPosLog[i] > bPosLog[i] {
-            current = 1
-        } else if aPosLog[i] < bPosLog[i] {
-            current = 2
+        if aPosLog[i] == bPosLog[i] {
+            continue
         }
-        headList.append(current) 
-    }
-
-    for i in 1...(headList.count - 1) {
-        let head = headList[i]
-        if current != head {
-            let temp = current
-            current = head
-            if temp != 0 {
-                count += 1
-            }
+        if aPosLog[i] > bPosLog[i] && current != 1 {
+            current = 1
+            count += 1
+        }
+        if aPosLog[i] < bPosLog[i] && current != 2 {
+            current = 2
+            count += 1
         }
     }
 
