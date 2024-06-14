@@ -38,7 +38,7 @@ func solution(input: (Int, Int, Int, Int, [ShakeHandLog])) -> String {
     for (_, x, y) in sortedLogs {
         if users[x].0 && users[y].0 {
             users[x].1 = users[x].1 > 0 ? users[x].1 - 1 : 0 
-            users[x].1 = users[y].1 > 0 ? users[y].1 - 1 : 0
+            users[y].1 = users[y].1 > 0 ? users[y].1 - 1 : 0
         } else if users[x].0 && !users[y].0 && users[x].1 > 0 {
             users[x].1 -= 1
             users[y].0 = true
