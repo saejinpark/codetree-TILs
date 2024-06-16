@@ -93,7 +93,11 @@ func solution(wrapper: (Int, Int)) -> String {
                 directIndex: currentDirectionCoordIndex,
                 coord: currentCoord
             )
+            if nRow < 0 || n <= nRow || nCol < 0 || m <= nCol {
+                break
+            }
         }
+
         currentCoord = Coord(row: nRow, col: nCol)
     }
 
