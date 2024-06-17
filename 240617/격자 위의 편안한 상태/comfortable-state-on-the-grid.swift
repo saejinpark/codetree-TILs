@@ -48,7 +48,7 @@ func solution(input: (Int, Int, [Coord])) -> String {
                 testCase += 1
             }
         }
-        arr.append(testCase >= 3 ? 1 : 0)
+        arr.append(testCase == 3 ? 1 : 0)
     }
     return arr.map(String.init).joined(separator: "\n")
 }
