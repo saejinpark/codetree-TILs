@@ -43,11 +43,11 @@ class Laser: Equatable {
             if direct == "U" {
                 direct = "R"
             } else if direct == "R" {
-                direct = "D"
+                direct = "U"
             } else if direct == "D" {
                 direct = "L"
             } else {
-                direct = "U"
+                direct = "D"
             }
         case "\\":
             if direct == "U" {
