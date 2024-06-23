@@ -24,13 +24,19 @@ let directDict = [
     "L": (0, -1)
 ]
 
-class Laser: Equatable {
+class Laser: Equatable, Hashable {
     var coord: Coord
     var direct: String
 
     init(coord: Coord, direct: String) {
         self.coord = coord
         self.direct = direct
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(coord.0)
+        hasher.combine(coord.1)
+        hasher.combine(direct)
     }
 
     static func == (lhs: Laser, rhs: Laser) -> Bool {
@@ -89,10 +95,10 @@ func startPointDirectToDirect(direct: String) -> String {
 }
 
 func genStartPoints(n: Int) -> [Laser] {
-    var startPoints: [Laser] = []
+    var startPoints: Set<Laser> = []
     var current = Laser(coord: (0, 0), direct: "D")
     while !startPoints.contains(current) {
-        startPoints.append(current)
+        startPoints.insert(current)
         var (coord, direct) = (current.coord, current.direct)
         let (cr, cc) = coord
         var (dr, dc) = directDict[startPointDirectToDirect(direct: direct)]!
@@ -110,7 +116,7 @@ func genStartPoints(n: Int) -> [Laser] {
         }
         current = Laser(coord: (nr, nc), direct: direct)
     }
-    return startPoints 
+    return Array(startPoints) 
 }
 
 func solution(input: (Int, [[String]], Int)) -> Int {
