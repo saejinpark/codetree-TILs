@@ -95,10 +95,12 @@ func startPointDirectToDirect(direct: String) -> String {
 }
 
 func genStartPoints(n: Int) -> [Laser] {
-    var startPoints: Set<Laser> = []
+    var visited: Set<Laser> = []
+    var startPoints: [Laser] = []
     var current = Laser(coord: (0, 0), direct: "D")
-    while !startPoints.contains(current) {
-        startPoints.insert(current)
+    while !visited.contains(current) {
+        visited.insert(current)
+        startPoints.append(current)
         var (coord, direct) = (current.coord, current.direct)
         let (cr, cc) = coord
         var (dr, dc) = directDict[startPointDirectToDirect(direct: direct)]!
@@ -116,7 +118,7 @@ func genStartPoints(n: Int) -> [Laser] {
         }
         current = Laser(coord: (nr, nc), direct: direct)
     }
-    return Array(startPoints) 
+    return startPoints 
 }
 
 func solution(input: (Int, [[String]], Int)) -> Int {
