@@ -28,7 +28,7 @@ func solution(nums: [Int]) -> Int {
     for i in 0..<limit {
         for j in (i + 1)..<limit {
             for k in (j + 1)..<limit {
-                if nums[i] < nums[j] && nums[j] < nums[k] {
+                if nums[i] <= nums[j] && nums[j] <= nums[k] {
                     count += 1
                 }
             }
