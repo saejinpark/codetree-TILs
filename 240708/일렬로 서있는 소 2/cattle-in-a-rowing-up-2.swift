@@ -25,9 +25,9 @@ func readNums() -> [Int]? {
 func solution(nums: [Int]) -> Int {
     var count = 0
     let limit = nums.count - 1
-    for i in 0..<limit {
-        for j in (i + 1)..<limit {
-            for k in (j + 1)..<limit {
+    for i in 0...limit {
+        for j in (i + 1)...limit {
+            for k in (j + 1)...limit {
                 if nums[i] <= nums[j] && nums[j] <= nums[k] {
                     count += 1
                 }
