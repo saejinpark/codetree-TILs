@@ -25,17 +25,24 @@ func readNumPair() -> (Int, Int)? {
 
 func solution(component: (Int, Int, [[String]])) -> Int {
     let (r, c, grid) = component
+
+    if grid[0][0] == grid[r - 1][c - 1] {
+        return 0
+    }
+    
     var count = 0
 
     for i in 1..<(r - 2) {
         for j in 1..<(c - 2) {
+
+
             if grid[i][j] == grid[0][0] {
                 continue
             }
 
             for k in (i + 1)..<(r - 1) {
                 for u in (j + 1)..<(c - 1) {
-                    if grid[k][u] == grid[r - 1][ c - 1] {
+                    if grid[k][u] == grid[r - 1][c - 1] {
                         continue
                     }
                     count += 1                 
