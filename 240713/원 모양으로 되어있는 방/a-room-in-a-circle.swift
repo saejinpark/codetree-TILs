@@ -31,7 +31,7 @@ func solution(component: (Int, [Int])) -> Int {
     var current = rooms
     
     for _ in 1...n {
-        current = moveFirstToLast(arr: rooms)
+        current = moveFirstToLast(arr: current)
         let testCase = calculateDistance(nums: current)
         answer = answer < testCase ? answer : testCase
     }
