@@ -10,6 +10,8 @@ func |> <T, U> (value: T, function: (T) -> U) -> U {
     return function(value)
 }
 
+let dList = [(0, 1), (1, 0), (1, -1), (1, 1)]
+
 func readNums() -> [Int]? {
     guard let line = readLine() else { return nil }
     let temp = line.split(separator: " ")
@@ -26,52 +28,48 @@ func readGrid() -> [[Int]]? {
     return grid
 }
 
-func idxStartEnd(idx: Int, limit: Int) -> (Int, Int)? {
-    if idx - 2 < 0 || limit <= idx + 2 { return nil }
-    return (idx - 2, idx + 2)
+func genStartAndEnd(coord: (Int, Int), d: (Int, Int)) -> [(Int, Int)]? {
+    if coord.0 - d.0 * 2 < 0 || 19 <= coord.0 - d.0 * 2
+    || coord.1 - d.1 * 2 < 0 || 19 <= coord.1 - d.1 * 2
+    || coord.0 + d.0 * 2 < 0 || 19 <= coord.0 + d.0 * 2
+    || coord.1 + d.1 * 2 < 0 || 19 <= coord.1 + d.1 * 2 {
+        return nil
+    }
+    return [
+        (coord.0 - d.0 * 2, coord.1 - d.1 * 2),
+        (coord.0 - d.0, coord.1 - d.1),
+        coord,
+        (coord.0 + d.0, coord.1 + d.1),
+        (coord.0 + d.0 * 2, coord.1 + d.1 * 2),
+    ]
 }
 
 func solution(grid: [[Int]]) -> String {
     var winner = -1
-    var coord = (-1, -1)
+    var temp = (-1, -1)
 
-    for row in 0..<grid.count {
+    for row in 0..<19 {
         var flag = false
-        for col in 0..<grid.count {
-            if let (rs, re) = idxStartEnd(idx: row, limit: 19) {
-                var first = 0
-                var second = 0
-                for i in (rs...re) {
-                    if grid[i][col] == 1 {
-                        first += 1
+        for col in 0..<19 {
+            for d in dList {
+                if let coords = genStartAndEnd(coord: (row, col), d: d) {
+                    var first = 0
+                    var second = 0
+
+                    for (r, c) in coords {
+                        if grid[r][c] == 1 {
+                            first += 1
+                        } else if grid[r][c] == 2 {
+                            second += 1
+                        }
                     }
-                    if grid[i][col] == 2 {
-                        second += 1
+
+                    if first == 5 || second == 5 {
+                        flag = true
+                        winner = first == 5 ? 1 : 2
+                        temp = (row + 1, col + 1)
+                        break
                     }
-                }
-                if first == 5 || second == 5 {
-                    winner = first == 5 ? 1 : 2
-                    coord = (row + 1, col + 1)
-                    flag = true
-                    break
-                }
-            }
-            if let (cs, ce) = idxStartEnd(idx: col, limit: 19) {
-                var first = 0
-                var second = 0
-                for i in (cs...ce) {
-                    if grid[row][i] == 1 {
-                        first += 1
-                    }
-                    if grid[row][i] == 2 {
-                        second += 1
-                    }
-                }
-                if first == 5 || second == 5 {
-                    winner = first == 5 ? 1 : 2
-                    coord = (row + 1, col + 1)
-                    flag = true
-                    break
                 }
             }
         }
@@ -79,11 +77,11 @@ func solution(grid: [[Int]]) -> String {
             break
         }
     }
-
     if winner == -1 {
         return "0"
     }
-    return "\(winner)\n\(coord.0) \(coord.1)"
+
+    return "\(winner)\n\(temp.0) \(temp.1)"
 }
 
 func main() {
