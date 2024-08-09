@@ -63,13 +63,13 @@ func solution(component: (Int, [[Int]])) -> Int {
     var answer = 0
 
     for i in 0..<n {
-        var coordSet = CoordSet()
         for j in 2..<n {
+            var coordSet = CoordSet()
             coordSet.insert(Coord(row: i, col: j - 2))
             coordSet.insert(Coord(row: i, col: j - 1))
             coordSet.insert(Coord(row: i, col: j))
+            setArr.append(coordSet)
         }
-        setArr.append(coordSet)
     }
     for i in 0..<setArr.count {
         for j in (i + 1)..<setArr.count {
