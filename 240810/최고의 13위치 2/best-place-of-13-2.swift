@@ -32,33 +32,20 @@ func readGrid(n: Int) -> [[Int]]? {
     return grid
 }
 
-let genId = {
-    var id = 0
-    return {
-        defer {
-            id += 1
-        }
-        return id
-    }
-}()
-
 class Coord: Hashable {
-    let id: Int
     let row: Int
     let col: Int
 
     init(row: Int, col: Int) {
-        self.id = genId()
         self.row = row
         self.col = col
     }
 
     static func == (lhs: Coord, rhs: Coord) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.row == rhs.col && lhs.col == rhs.col
     }
 
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
         hasher.combine(row)
         hasher.combine(col)
     }
