@@ -42,7 +42,7 @@ class Coord: Hashable {
     }
 
     static func == (lhs: Coord, rhs: Coord) -> Bool {
-        return lhs.row == rhs.col && lhs.col == rhs.col
+        return lhs.row == rhs.row && lhs.col == rhs.col
     }
 
     func hash(into hasher: inout Hasher) {
@@ -65,7 +65,6 @@ func solution(component: (Int, [[Int]])) -> Int {
     for i in 0..<n {
         for j in 2..<n {
             var coordSet = CoordSet()
-            
             coordSet.insert(Coord(row: i, col: j - 2))
             coordSet.insert(Coord(row: i, col: j - 1))
             coordSet.insert(Coord(row: i, col: j))
