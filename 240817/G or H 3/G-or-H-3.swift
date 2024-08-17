@@ -51,6 +51,9 @@ func solution(component: (Int, Int, [(Int, String)])) -> Int {
     }
 
     var answer = -1
+    if k >= limit {
+        return row.reduce(0, +)
+    }
     for i in k..<limit {
         let testCase = ((i - k)...i).map{row[$0]}.reduce(0, +)
         answer = [answer, testCase].max()!
