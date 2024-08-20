@@ -24,6 +24,7 @@ func readNumPair() -> (Int, Int)? {
 
 func solution(component: (Int, Int, [Int], [Int])) -> Int {
     let (n, m, nums, baseLine) = component
+    if m > n { return 0 }
     var answer = 0
     var sortedBaseLine = baseLine.sorted()
     
