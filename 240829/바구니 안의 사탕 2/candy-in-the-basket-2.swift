@@ -26,10 +26,15 @@ func solution(component: (Int, Int, [(Int, Int)], Int)) -> Int {
     var answer = 0
 
     let (n, k, coords, l) = component
+
+    if n < k * 2 {
+        return coords.reduce(0) { acc, cur in acc + cur.0 }
+    }
     var row = Array(repeating: 0, count: l + 1)
     for (count, index) in coords {
         row[index] += count
     }
+
     for c in k...(l - k) {
         var testCase = 0
         for index in (c - k)...(c + k) {
