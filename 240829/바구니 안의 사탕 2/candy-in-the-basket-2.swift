@@ -27,7 +27,7 @@ func solution(component: (Int, Int, [(Int, Int)], Int)) -> Int {
 
     let (n, k, coords, l) = component
 
-    if n < k * 2 {
+    if l < k * 2 {
         return coords.reduce(0) { acc, cur in acc + cur.0 }
     }
     var row = Array(repeating: 0, count: l + 1)
