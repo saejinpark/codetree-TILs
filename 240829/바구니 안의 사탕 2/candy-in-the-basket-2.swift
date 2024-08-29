@@ -30,7 +30,7 @@ func solution(component: (Int, Int, [(Int, Int)], Int)) -> Int {
     for (count, index) in coords {
         row[index] += count
     }
-    for c in k..<(l - k) {
+    for c in k...(l - k) {
         var testCase = 0
         for index in (c - k)...(c + k) {
             testCase += row[index]
