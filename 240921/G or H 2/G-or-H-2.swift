@@ -46,11 +46,11 @@ func solution(_ arr: [(Int, String)]) -> Int {
         row[pos] = alpha
     }
 
-    for start in 0..<(limit - 1) {
+    for start in 0...(limit - 1) {
         if row[start] == "" {
             continue
         }
-        for end in (start + 1)..<limit {
+        for end in (start + 1)...limit {
             if row[end] == "" {
                 continue
             }
