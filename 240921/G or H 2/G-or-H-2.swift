@@ -60,17 +60,19 @@ func solution(_ arr: [(Int, String)]) -> Int {
                 continue
             }
 
-            var stack = 0
+            var gCount = 0
+            var hCount = 0
+
             for index in start...end {
                 if row[index] == "G" {
-                    stack += 1
+                    gCount += 1
                 }
                 if row[index] == "H" {
-                    stack -= 1
+                    hCount += 1
                 }
             }
 
-            if stack == 0 {
+            if gCount == 0 || hCount == 0 || gCount == hCount {
                 answer = value
             }
         }        
