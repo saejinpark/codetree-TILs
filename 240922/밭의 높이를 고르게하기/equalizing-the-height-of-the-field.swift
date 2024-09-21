@@ -22,18 +22,12 @@ func readNHT() -> (Int, Int, Int)? {
     return (nums[0], nums[1], nums[2])
 }
 
-func calculate(base: Int, num: Int) -> Int {
-    return abs(num - base)
-}
+let genCalculate = { (base: Int) in { (num: Int) in abs(num - base) } }
 
 func solution(component: (Int, Int, Int, [Int])) -> Int {
     let (n, h, t, nums) = component
-    var answer = Int.max
-    for start in 0...(n - t) {
-        var stack = nums[start..<(start + t)].map{calculate(base: h, num: $0) }.reduce(0, +) 
-        answer = [answer, stack].min()!
-    }
-    return answer
+    let calculate = genCalculate(h)
+    return (0...(n - t)).map{nums[$0..<($0 + t)].map(calculate).reduce(0, +)}.min()!
 }
 
 func main() {
