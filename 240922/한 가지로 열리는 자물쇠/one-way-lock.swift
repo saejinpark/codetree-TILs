@@ -24,14 +24,22 @@ func readNums() -> [Int]? {
 
 func solution(_ component: (Int, [Int])) -> Int {
     let (n, comb) = component
-
-    return (1...n).reduce(0) { outerCount, i in
-        outerCount + (1...n).reduce(0) { middleCount, j in 
-            middleCount + (1...n).reduce(0) { innerCount, k in
-                innerCount + (zip(comb, [i, j, k]).contains { abs($0 - $1) <= 2 } ? 1 : 0)
+    var count = 0
+    for i in 1...n {
+        for j in 1...n {
+            for k in 1...n {
+                let testCase = [i, j, k]
+                for (first, second) in zip(comb, testCase) {
+                    if abs(first - second) <= 2 {
+                        count += 1
+                        break
+                    } 
+                }
             }
         }
     }
+
+    return count
 }
 
 func main() {
