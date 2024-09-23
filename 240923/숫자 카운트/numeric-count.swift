@@ -64,6 +64,11 @@ func solution(_ component: (Int, [(Int, Int, Int)])) -> Int {
 
     for num in 123...987 {
         let testCase = numToArr(num: num)
+
+        if testCase.contains(0) {
+            continue
+        }
+
         if testCase[0] == testCase[1] || testCase[1] == testCase[2] || testCase[0] == testCase[2] {
             continue
         }
