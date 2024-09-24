@@ -18,11 +18,13 @@ func readNums() -> [Int]? {
 }
 
 func solution(_ nums: [Int]) -> Int {
-    let sortedNums = nums.sorted(by:{ $0 < $1 })
+    let sortedNums = nums.sorted()
     var sums = [Int]()
 
     for i in 1...nums.count / 2 {
-        let sum = sortedNums[i - 1] + sortedNums[sortedNums.count - i - 1]
+        let first = sortedNums[i - 1]
+        let second = sortedNums[sortedNums.count - i]
+        let sum = first + second
         sums.append(sum)
     }
 
