@@ -36,6 +36,11 @@ func solution(nums: [Int]) -> Int {
             }
         }
     }
+
+    if minDifference == Int.max {
+        return -1
+    }
+
     return minDifference
 }
 
