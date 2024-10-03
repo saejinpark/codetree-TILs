@@ -18,29 +18,30 @@ func readNums() -> [Int]? {
 }
 
 func solution(nums: [Int]) -> Int {
+    var sum = nums.reduce(0, +)
     var minDifference = Int.max
-    
-    // 모든 가능한 2-2-1 팀 조합을 확인
-    for i in 0..<5 {
-        for j in 0..<4 {
-            for k in (j+1)..<5 {
-                if i != j && i != k {
-                    let team1 = nums[j] + nums[k]
-                    let team2 = nums.enumerated().filter { $0.offset != i && $0.offset != j && $0.offset != k }.map { $0.element }.reduce(0, +)
-                    let team3 = nums[i]
-                    
+
+    for i in 0...4 {
+        for j in 0...4 {
+            for k in 0...4 {
+                if i != j && j != k && i != k {
+                    let team1 = nums[i] + nums[j]
+                    let team2 = nums[k]
+                    let team3 = sum - team1 - team2
                     if team1 != team2 && team2 != team3 && team1 != team3 {
-                        let maxSum = max(team1, team2, team3)
-                        let minSum = min(team1, team2, team3)
-                        let difference = maxSum - minSum
-                        minDifference = min(minDifference, difference)
+                        let sortedTeams = [team1, team2, team3].sorted(by: <)
+                        minDifference = [minDifference, sortedTeams.last! - sortedTeams.first!].min()!
                     }
                 }
             }
         }
     }
-    
-    return minDifference == Int.max ? -1 : minDifference
+
+    if minDifference == Int.max {
+        return -1
+    }
+
+    return minDifference
 }
 
 func main() {
