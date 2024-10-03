@@ -30,7 +30,7 @@ func solution(nums: [Int]) -> Int {
             if sum1 != sum2 && sum2 != sum3 && sum1 != sum3 {
                 let maxSum = [sum1, sum2, sum3].max()!
                 let minSum = [sum1, sum2, sum3].min()!
-                let difference = [maxSum - minSum].max()!
+                let difference = maxSum - minSum
 
                 minDifference = [minDifference, difference].min()!
             }
