@@ -1,14 +1,17 @@
+from collections import Counter
 
+def test(num):
+    digits_str = str(num)
 
+    c = Counter(digits_str)
 
+    if len(c) != 2:
+        return False
 
-
-
+    return any(count == 1 for count in c.values())
 
 if __name__ == "__main__":
-
     import sys
-    from collections import defaultdict
 
     input = sys.stdin.readline
 
@@ -17,24 +20,7 @@ if __name__ == "__main__":
     answer = 0
 
     for test_case in range(x, y + 1):
-
-        visited = defaultdict(int)
-
-        temp = test_case
-
-        while temp != 0:
-            num = temp % 10
-            temp = temp // 10
-            
-            visited[num] += 1
-
-        if len(visited) != 2:
-            continue
-        
-        v_list = list(visited.values())
-
-        if v_list[0] == 1 or v_list[1] == 1:
+        if test(test_case):
             answer += 1
-
-
+    
     print(answer)
