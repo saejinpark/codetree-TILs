@@ -1,14 +1,20 @@
 answer = 0
 
-n, m, d, s = map(int, input().split())
+N, M, D, S = map(int, input().split())
 
-eat_log = []
+
+eat_log = [{}] + [{} for i in range(N)]
 pain_log = []
 
-for _ in range(d):
-    eat_log.append(tuple(map(int, input().split())))
+for _ in range(D):
+    p, m, t = map(int, input().split())
 
-for _ in range(s):
+    if m in eat_log[p]:
+        eat_log[p][m] = min(eat_log[p][m], t)
+    else:
+        eat_log[p][m] = t
+
+for _ in range(S):
     pain_log.append(tuple(map(int, input().split())))
 
 for i in range(1, m + 1):
@@ -19,23 +25,22 @@ for i in range(1, m + 1):
         if not test_case:
             break
         
-        for (_p, m, _t) in eat_log:
-
-            if p == _p and m == i and _t >= t:
-                test_case = False
-            
-            if not test_case:
-                break
+        if i in eat_log[p] and eat_log[p][i] >= t:
+            test_case = False
+        
+        if not test_case:
+            break
     
 
     if test_case:
-        eat_p_dict = {}
 
-        for (p, _m, t) in eat_log:
-            if _m == i:
-                eat_p_dict[p] = True
+        stack = 0
+
+        for person in eat_log:
+            if i in person:
+                stack += 1
     
-        answer = max(answer, len(eat_p_dict.keys()))
+        answer = max(answer, stack)
 
 print(answer)
 
