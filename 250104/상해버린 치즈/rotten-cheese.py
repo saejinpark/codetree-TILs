@@ -29,9 +29,13 @@ for i in range(1, m + 1):
     
 
     if test_case:
-        filtered_eat_log = list(filter(lambda x : x[1] == i, eat_log))
+        eat_p_dict = {}
+
+        for (p, _m, t) in eat_log:
+            if _m == i:
+                eat_p_dict[p] = True
     
-        answer = max(answer, len(filtered_eat_log))
+        answer = max(answer, len(eat_p_dict.keys()))
 
 print(answer)
 
