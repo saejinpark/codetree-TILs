@@ -23,7 +23,7 @@ for i in range(1, m + 1):
         
         for (_p, m, _t) in eat_log:
 
-            if p == _p and m == i and _t - 1 >= t:
+            if p == _p and m == i and _t > t:
                 test_case = False
             
             if not test_case:
