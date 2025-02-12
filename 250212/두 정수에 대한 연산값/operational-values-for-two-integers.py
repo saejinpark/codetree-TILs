@@ -2,6 +2,16 @@ a, b = map(int, input().split())
 
 # Write your code here!
 
-[a, b] = sorted([a, b])
+def solution():
+    global a, b
+    
+    if a > b:
+        a += 25
+        b *= 2
+    else:
+        a *= 2
+        b += 25
 
-print(a * 2, b + 25)
+solution()
+
+print(a, b)
