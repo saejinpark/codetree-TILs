@@ -9,10 +9,10 @@ if o not in ["+", "-", "/", "*"]:
 
 else:
     if o == "+":
-        print(a, o, c, a + c)
+        print(a, o, c, "=", a + c)
     elif o == "-":
-        print(a, o, c, a - c)
+        print(a, o, c, "=", a - c)
     elif o == "/":
-        print(a, o, c, a // c)
+        print(a, o, c, "=", a // c)
     else:
         print(a, o, c, "=", a * c)
