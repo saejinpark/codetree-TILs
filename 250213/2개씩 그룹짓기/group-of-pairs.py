@@ -2,6 +2,11 @@ n = int(input())
 nums = list(map(int, input().split()))
 
 # Write your code here!
-grouped = list(map(sum, zip(nums[::2], nums[1::2])))
+nums.sort()
 
-print(max(grouped))
+answer = 0
+
+for i in range(len(nums) // 2):
+    answer = max(answer, nums[i] + nums[len(nums) - 1 -i])
+
+print(answer)
