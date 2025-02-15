@@ -8,7 +8,7 @@ def max_shape_one():
     cnts = []
 
     for r in range(n - 1):
-        for c in range(n - 1):
+        for c in range(m - 1):
             start_coords.append((r, c))
 
     for (r, c) in start_coords:
@@ -30,12 +30,12 @@ def max_shape_two():
     cnts = []
 
     for i in range(n):
-        for j in range(n - 2):
+        for j in range(m - 2):
             cnt = grid[i][j] + grid[i][j + 1] + grid[i][j + 2]
             cnts.append(cnt)
     
     for i in range(n - 2):
-        for j in range(n):
+        for j in range(m):
             cnt = grid[i][j] + grid[i + 1][j] + grid[i + 2][j]
             cnts.append(cnt)
 
